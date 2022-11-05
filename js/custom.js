@@ -304,7 +304,58 @@ if (iconMenu) {
 	});
 }
 
+
+// const ourPossibilitiesBloks = document.querySelectorAll('.our-possibilities-blok');
+// const ourPossibilitiesBottomBacgraund = document.querySelector('.our-possibilities-bottom__bacgraund');
+
+// if (ourPossibilitiesBloks) {
+// 	let x = ourPossibilitiesBloks[ourPossibilitiesBloks.length - 1].offsetHeight;
+// 	//alert(x / 2);
+// 	ourPossibilitiesBottomBacgraund.style.transform = `translateY(${-(x / 2)}px)`;
+// }
+
+$('.faq-tab__item').click(function () {
+	$('.faq-tab__item').removeClass('active')
+	$(this).addClass('active')
+})
 //Бургер =================================================================================================
+var mainSlider = new Swiper(".index-slaider__wrapper", {
+	allowTouchMove: false,
+	loop: true,
+	autoplay: {
+		delay: 3000,
+		stopOnLastSlide: true,
+		disableOnInteraction: false,
+	},
+	keyboard: {
+		enabled: true,
+		onlyInViewport: false,
+	},
+});
+
+
+var feedbacksSwiper = new Swiper("#feedbacksSlider", {
+	loop: true,
+	spaceBetween: 15,
+	slidesPerView: "auto",
+	navigation: {
+		nextEl: ".feedbacks-button-next",
+		prevEl: ".feedbacks-button-prev",
+	},
+	autoplay: {
+		delay: 5000,
+	},
+	breakpoints: {
+		640: {
+			spaceBetween: 20,
+			slidesPerView: 2,
+		},
+		1200: {
+			spaceBetween: 30,
+			slidesPerView: 3,
+		},
+	}
+});
 var swiper = new Swiper(".mySwiper", {
 	loop: true,
 	spaceBetween: 5,
