@@ -376,3 +376,154 @@ const feedbacksSlider = new Swiper(".feedbackSlider", {
 		prevEl: ".feedbackSlider-prev",
 	},
 });
+
+var galleryBody = new Swiper(".gallery__body_1", {
+	loop: true,
+	spaceBetween: 30,
+	navigation: {
+		prevEl: ".gallery-buttons__left_1",
+		nextEl: ".gallery-buttons__right_1",
+	},
+
+	breakpoints: {
+		320.1: {
+			slidesPerView: 1,
+		},
+		520.1: {
+			slidesPerView: 2,
+		},
+		767.1: {
+			slidesPerView: 3,
+		},
+	},
+});
+
+var galleryMb = new Swiper(".gallery__body_mb_1", {
+	loop: true,
+	spaceBetween: 30,
+	slidesPerView: 1,
+	navigation: {
+		prevEl: ".gallery-buttons__left_1",
+		nextEl: ".gallery-buttons__right_1",
+	},
+});
+
+galleryBody.controller.control = galleryMb;
+galleryMb.controller.control = galleryBody;
+
+
+
+
+
+var galleryBody2 = new Swiper(".gallery__body_2", {
+	loop: true,
+	spaceBetween: 30,
+	navigation: {
+		prevEl: ".gallery-buttons__left_2",
+		nextEl: ".gallery-buttons__right_2",
+	},
+
+	breakpoints: {
+		320.1: {
+			slidesPerView: 1,
+		},
+		520.1: {
+			slidesPerView: 2,
+		},
+		767.1: {
+			slidesPerView: 3,
+		},
+	},
+});
+
+var galleryMb2 = new Swiper(".gallery__body_mb_2", {
+	loop: true,
+	spaceBetween: 30,
+	slidesPerView: 1,
+	navigation: {
+		prevEl: ".gallery-buttons__left_2",
+		nextEl: ".gallery-buttons__right_2",
+	},
+});
+
+galleryBody2.controller.control = galleryMb2;
+galleryMb2.controller.control = galleryBody2;
+
+
+
+
+
+var galleryBody3 = new Swiper(".gallery__body_3", {
+	loop: true,
+	spaceBetween: 30,
+	navigation: {
+		prevEl: ".gallery-buttons__left_3",
+		nextEl: ".gallery-buttons__right_3",
+	},
+
+	breakpoints: {
+		320.1: {
+			slidesPerView: 1,
+		},
+		520.1: {
+			slidesPerView: 2,
+		},
+		767.1: {
+			slidesPerView: 3,
+		},
+	},
+});
+
+var galleryMb3 = new Swiper(".gallery__body_mb_3", {
+	loop: true,
+	spaceBetween: 30,
+	slidesPerView: 1,
+	navigation: {
+		prevEl: ".gallery-buttons__left_3",
+		nextEl: ".gallery-buttons__right_3",
+	},
+});
+
+galleryBody3.controller.control = galleryMb3;
+galleryMb3.controller.control = galleryBody3;
+
+
+const Tab = document.querySelectorAll('._tab');
+
+if (Tab.length > 0) {
+	for (let i = 0; i < Tab.length; i++) {
+		let TabLinks = Tab[i].querySelectorAll('._tab-link');
+		let TabLinkBody = Tab[i].querySelectorAll('._tab-link-body');
+		let TabWraper = Tab[i].querySelectorAll('._tab-wrapper');
+		let TabBodys = Tab[i].querySelectorAll('._tab-body');
+		for (let i = 0; i < TabLinks.length; i++) {
+			let TabLink = TabLinks[i];
+
+			TabLink.addEventListener("click", function (e) {
+				for (let i = 0; i < TabLinks.length; i++) {
+					if (TabLinks[i].classList.contains('_active')) {
+						TabLinks[i].classList.remove('_active');
+					}
+				}
+				TabLink.classList.toggle('_active');
+				const blockID = TabLink.getAttribute('href').replace('#', '');
+
+				if (blockID == "all") {
+					for (let i = 0; i < TabBodys.length; i++) {
+						if (TabBodys[i].classList.contains('hide')) {
+							TabBodys[i].classList.remove('hide');
+						}
+					}
+				} else {
+					for (let i = 0; i < TabBodys.length; i++) {
+						TabBodys[i].classList.add('hide');
+
+						if (TabBodys[i].id == blockID) {
+							TabBodys[i].classList.remove('hide');
+						}
+					}
+				}
+			});
+		}
+	}
+}
