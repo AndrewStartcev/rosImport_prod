@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/x-icon" href="img/favicon.svg" />
 	<link rel="stylesheet" href="libs/swiper-bundle.min.css">
 	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/post.css" />
+	<link rel="stylesheet" href="css/post.css?ver=1.2" />
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 							<span>Н</span>
 							<span>Ю</span>
 						</div>
-						<a href="index.html" data-da=".header__body, 1064, last" class="header-logo">
+						<a href="#" data-da=".header__body, 1064, last" class="header-logo">
 							<img src="img/header/1.svg" alt="">
 						</a>
 					</div>
@@ -179,7 +179,8 @@
 											</div>
 										</div>
 									</div>
-									<div data-da=".header-menu-mb__content, 1064, last" class="fill-application">
+									<a href="#orderForm" data-popup="" data-da=".header-menu-mb__content, 1064, last"
+										class="fill-application">
 										<div class="fill-application__wrapper">
 											<div class="fill-application__text">
 												Нужно заполнить контактные данные
@@ -189,7 +190,7 @@
 												<span class="icon-pointer-rotate"></span>
 											</div>
 										</div>
-									</div>
+									</a>
 								</div>
 							</div>
 							<div data-da=".header-menu__body, 767, last" class="header-menu-links">
@@ -420,7 +421,99 @@
 			</div>
 		</footer>
 	</div>
+
+	<div class="popup" id="feedbackForm">
+		<div class="popup__content">
+			<div class="popup__body">
+				<button class="popup__close"></button>
+				<div class="feedbackForm"><img class="popup__logo" src="img/logo.png" alt="" />
+					<h2 class="feedbackForm__title">Оставить отзыв</h2>
+					<form class="feedbackForm__form" id="feedbackFormItem" action="" enctype="multipart/form-data">
+						<div class="feedbackForm__row">
+							<div class="input-group">
+								<label for="userName">Ваше имя <i>*</i></label>
+								<!--INFO: Класс невалидного поля .is-invalid-->
+								<input type="text" name="user_name" required="required" id="userName" />
+							</div>
+							<div class="input-group">
+								<label for="userTel">Ваш e-mail или номер телефона <i>*</i></label>
+								<!--INFO: Класс невалидного поля .is-invalid-->
+								<input type="text" name="user_tel" required="required" id="userTel" />
+							</div>
+						</div>
+						<div class="input-group --max">
+							<label for="userFeedbacks">Напишите ваш отзыв</label>
+							<!--INFO: Класс невалидного поля .is-invalid-->
+							<textarea id="userFeedbacks" name="user_feedbacks"></textarea>
+						</div>
+						<div class="feedbackForm__row">
+							<div class="feedbackForm__column">
+								<div class="input-group">
+									<label for="">Вы можете загрузить фотографии</label>
+									<div class="file-input">
+										<label class="file-input__image" for="userPhoto"></label>
+										<div class="file-input__content">
+											<p>Нажмите на область с иконкой, чтобы прикрепить фото</p>
+										</div>
+									</div>
+									<!--INFO: Класс невалидного поля .is-invalid-->
+									<input type="file" multiple name="files[]" id="userPhoto" />
+								</div>
+								<label class="checkbox-group" for="isPublish">
+									<input id="isPublish" type="checkbox" name="is_review_publish" /><span>Не публиковать мой отзыв на
+										сайте</span>
+								</label>
+							</div>
+						</div>
+						<div class="invalid-feedback">
+							<p>Обязательно к заполнению! Проверьте правильность ввода</p>
+						</div>
+						<button class="submit" type="submit">Отправить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popup" id="authForm">
+		<div class="popup__content">
+			<div class="popup__body --small">
+				<button class="popup__close"></button>
+				<div class="authForm"><img class="popup__logo" src="img/logo.png" alt="" />
+					<h2 class="authForm__title">Вход в личный кабинет</h2>
+					<form class="authForm__form" id="authFormItem" action="">
+						<div class="input-group">
+							<label for="login">Ваш логин</label>
+							<!--INFO: Класс невалидного поля .is-invalid-->
+							<input type="text" id="login" />
+						</div>
+						<div class="input-group">
+							<label for="password">Ваш пароль</label>
+							<input type="password" id="password" /><a href="">Забыли пароль?</a>
+						</div>
+						<!--INFO: Чтобы показать блок, нужно добавить класс .show-->
+						<div class="invalid-feedback">
+							<p>Пользователь с такими данными не найден! Проверьте правильность ввода логина и пароля</p>
+						</div>
+						<button class="submit" type="submit">Войти</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popup" id="successForm">
+		<div class="popup__content">
+			<div class="popup__body --small">
+				<button class="popup__close"></button>
+				<div class="orderForm"><img class="popup__logo" src="img/logo.png" alt="" />
+					<h2 class="orderForm__title">Брагодарим за заявку</h2>
+					<p class="orderForm__text"> В ближайшее время наш менеджер свяжется с вами</p>
+					<button class="submit popup-close">Закрыть окно</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script src="libs/jquery.js"></script>
+	<script src="libs/jquery.validate.min.js"></script>
 	<script src="libs/swiper-bundle.min.js"></script>
 	<script src="js/custom.js"></script>
 </body>

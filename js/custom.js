@@ -226,7 +226,7 @@ $('a[data-popup-id]').click(function () {
 		$('body').addClass('lock');
 	}
 });
-$('.popup__close').click(function () {
+$('.popup__close, .popup-close').click(function () {
 	$('.popup').removeClass('show');
 	$('body').removeClass('lock');
 });
@@ -278,15 +278,19 @@ $("form").each(function () {
 				$(this).find(".invalid-feedback").removeClass('show');
 			}
 		},
-		submitHandler: function (form) {
+		submitHandler: function (el) {
+			let fd = new FormData(el);
 			$.ajax({
-				type: "POST",
 				url: "/php/telegram/send.php",
 				type: "POST",
-				data: new FormData(form),
+				data: fd,
 				processData: false,
 				contentType: false,
+				beforeSend: () => {
+					$('.submit').addClass('spiner');
+				},
 				success: function success(respond) {
+					$('.submit').removeClass('spiner');
 					$('.popup').removeClass('show');
 					$('#successForm').addClass('show');
 				}

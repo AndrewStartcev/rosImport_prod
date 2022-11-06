@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/x-icon" href="img/favicon.svg" />
 	<link rel="stylesheet" href="libs/swiper-bundle.min.css">
 	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/post.css" />
+	<link rel="stylesheet" href="css/post.css?ver=1.3" />
 </head>
 
 <body>
@@ -1433,7 +1433,7 @@
 				<button class="popup__close"></button>
 				<div class="orderForm"><img class="popup__logo" src="img/logo.png" alt="" />
 					<h2 class="orderForm__title">Оставить заявку</h2>
-					<form class="orderForm__form" action="">
+					<form class="orderForm__form" id="orderFormItem" action="">
 						<div class="input-group">
 							<label for="userName">Ваше имя <i>*</i></label>
 							<!--INFO: Класс невалидного поля .is-invalid-->
@@ -1469,7 +1469,7 @@
 				<button class="popup__close"></button>
 				<div class="feedbackForm"><img class="popup__logo" src="img/logo.png" alt="" />
 					<h2 class="feedbackForm__title">Оставить отзыв</h2>
-					<form class="feedbackForm__form" action="" enctype="multipart/form-data">
+					<form class="feedbackForm__form" id="feedbackFormItem" action="" enctype="multipart/form-data">
 						<div class="feedbackForm__row">
 							<div class="input-group">
 								<label for="userName">Ваше имя <i>*</i></label>
@@ -1498,10 +1498,10 @@
 										</div>
 									</div>
 									<!--INFO: Класс невалидного поля .is-invalid-->
-									<input type="file" name="filies[]" multiple="multiple" id="userPhoto" />
+									<input type="file" multiple name="files[]" id="userPhoto" />
 								</div>
 								<label class="checkbox-group" for="isPublish">
-									<input id="isPublish" type="checkbox" name="isPublish" /><span>Не публиковать мой отзыв на
+									<input id="isPublish" type="checkbox" name="is_review_publish" /><span>Не публиковать мой отзыв на
 										сайте</span>
 								</label>
 							</div>
@@ -1521,7 +1521,7 @@
 				<button class="popup__close"></button>
 				<div class="authForm"><img class="popup__logo" src="img/logo.png" alt="" />
 					<h2 class="authForm__title">Вход в личный кабинет</h2>
-					<form class="authForm__form" action="">
+					<form class="authForm__form" id="authFormItem" action="">
 						<div class="input-group">
 							<label for="login">Ваш логин</label>
 							<!--INFO: Класс невалидного поля .is-invalid-->
@@ -1548,7 +1548,7 @@
 				<div class="orderForm"><img class="popup__logo" src="img/logo.png" alt="" />
 					<h2 class="orderForm__title">Брагодарим за заявку</h2>
 					<p class="orderForm__text"> В ближайшее время наш менеджер свяжется с вами</p>
-					<button class="submit">Закрыть окно</button>
+					<button class="submit popup-close">Закрыть окно</button>
 				</div>
 			</div>
 		</div>
@@ -1625,7 +1625,7 @@
 	<script src="libs/jquery.js"></script>
 	<script src="libs/jquery.validate.min.js"></script>
 	<script src="libs/swiper-bundle.min.js"></script>
-	<script src="js/custom.js"></script>
+	<script src="js/custom.js?ver=3.5"></script>
 </body>
 
 </html>
