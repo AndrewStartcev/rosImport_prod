@@ -12,7 +12,6 @@ ibg();
 
 
 // Динамический адаптив  -----------------------------------------------------------------------------
-
 function DynamicAdapt(type) {
 	this.type = type;
 }
@@ -170,106 +169,6 @@ da.init();
 // Динамический адаптив  -----------------------------------------------------------------------------
 
 
-
-//Попапы =================================================================================================
-const popupLinks = document.querySelectorAll('.popup-link');
-const body = document.querySelector('body');
-const lockPadding = document.querySelectorAll('.lock-padding');
-
-let unlock = true;
-
-const timeout = 1000;
-
-if (popupLinks.length > 0) {
-	for (let i = 0; i < popupLinks.length; i++) {
-		const popupLink = popupLinks[i];
-		popupLink.addEventListener("click", function (e) {
-			const popupName = popupLink.getAttribute('href').replace('#', '');
-			const curentPopup = document.getElementById(popupName);
-			popupOpen(curentPopup);
-			e.preventDefault();
-		});
-	}
-}
-
-const popupCloseIcon = document.querySelectorAll('.close-popup');
-if (popupCloseIcon.length > 0) {
-	for (let i = 0; i < popupCloseIcon.length; i++) {
-		const el = popupCloseIcon[i];
-		el.addEventListener('click', function (e) {
-			popupClose(el.closest('.popup'));
-			e.preventDefault();
-		});
-	}
-}
-
-function popupOpen(curentPopup) {
-	if (curentPopup && unlock) {
-		const popupActive = document.querySelector('.popup.open');
-		if (popupActive) {
-			popupClose(popupActive, false);
-		} else {
-			bodyLock();
-		}
-		curentPopup.classList.add('open');
-		curentPopup.addEventListener("click", function (e) {
-			if (!e.target.closest('.popup__content')) {
-				popupClose(e.target.closest('.popup'));
-			}
-		});
-	}
-}
-
-function popupClose(popupActive, doUnlock = true) {
-	if (unlock) {
-		popupActive.classList.remove('open');
-		if (doUnlock) {
-			bodyUnlock();
-		}
-	}
-}
-
-function bodyLock() {
-	const lockPaddingValue = window.innerWidth - document.querySelector('.wraper').offsetWidth + 'px';
-
-	if (lockPadding.length > 0) {
-		for (let i = 0; i < lockPadding.length; i++) {
-			const el = lockPadding[i];
-			el.style.paddingRight = lockPaddingValue;
-		}
-	}
-	body.style.paddingRight = lockPaddingValue;
-	body.classList.add('_lock');
-
-	unlock = false;
-	setTimeout(function () {
-		unlock = true;
-	}, timeout);
-}
-
-function bodyUnlock() {
-	setTimeout(function () {
-		if (lockPadding.length > 0) {
-			for (let i = 0; i < lockPadding.length; i++) {
-				const el = lockPadding[i];
-				el.style.paddingRight = '0px';
-			}
-		}
-		body.style.paddingRight = '0px';
-		body.classList.remove('_lock');
-	}, timeout);
-
-	unlock = false;
-	setTimeout(function () {
-		unlock = true;
-	}, timeout);
-}
-
-
-//Попапы======================================================================================================
-
-
-
 //Бургер =================================================================================================
 
 const iconMenu = document.querySelector('._menu__icon');
@@ -305,36 +204,112 @@ if (iconMenu) {
 }
 
 
-// const ourPossibilitiesBloks = document.querySelectorAll('.our-possibilities-blok');
-// const ourPossibilitiesBottomBacgraund = document.querySelector('.our-possibilities-bottom__bacgraund');
-
-// if (ourPossibilitiesBloks) {
-// 	let x = ourPossibilitiesBloks[ourPossibilitiesBloks.length - 1].offsetHeight;
-// 	//alert(x / 2);
-// 	ourPossibilitiesBottomBacgraund.style.transform = `translateY(${-(x / 2)}px)`;
-// }
+//Переходы по якорным ссылкам =====================
+$(".menu a, .scrol-link").click(function () {
+	var elementClick = $(this).attr("href");
+	var destination = $(elementClick).offset().top - 160;
+	$("body,html").animate({ scrollTop: destination }, 1200);
+});
+//======== Всплывающие окна =========================
+$('a[data-popup]').click(function () {
+	let namePopup = $(this).attr('href');
+	$(namePopup).scrollTop(0);
+	if ($('.popup').is(namePopup)) {
+		$(namePopup).addClass('show');
+		$('body').addClass('lock');
+	}
+});
+$('a[data-popup-id]').click(function () {
+	let namePopup = $(this).attr('data-popup-id');
+	if ($('.popup').is(namePopup)) {
+		$(namePopup).addClass('show');
+		$('body').addClass('lock');
+	}
+});
+$('.popup__close').click(function () {
+	$('.popup').removeClass('show');
+	$('body').removeClass('lock');
+});
+$(document).mouseup(function (e) {
+	let div = $(".popup__body");
+	if (!div.is(e.target) && div.has(e.target).length === 0) {
+		$('.popup').removeClass('show');
+		$('body').removeClass('lock');
+	}
+});
 
 $('.faq-tab__item').click(function () {
 	$('.faq-tab__item').removeClass('active')
 	$(this).addClass('active')
+});
+
+$('#userPhoto').change(function (event) {
+	let files = event.target.files;
+	for (let i = 0, f; f = files[i]; i++) {
+		let reader = new FileReader();
+		reader.onload = (function (theFile) {
+			return function (e) {
+				let preview = document.querySelector(".file-input__image");
+				let span = document.createElement('span');
+				span.innerHTML = ['<img src="', e.target.result, '" />'].join('');
+				preview.insertBefore(span, null);
+			};
+		})(f);
+		reader.readAsDataURL(f);
+	}
 })
-//Бургер =================================================================================================
-var mainSlider = new Swiper(".index-slaider__wrapper", {
+// Форма =================
+$("form").each(function () {
+	$(this).validate({
+		rules: {
+			user_name: {
+				required: true,
+				minlength: 3
+			},
+			user_tel: {
+				required: true,
+			},
+		},
+		invalidHandler: function (event, validator) {
+			var errors = validator.numberOfInvalids();
+			if (errors) {
+				$(this).find(".invalid-feedback").addClass('show');
+			} else {
+				$(this).find(".invalid-feedback").removeClass('show');
+			}
+		},
+		submitHandler: function (form) {
+			$.ajax({
+				type: "POST",
+				url: "/php/telegram/send.php",
+				type: "POST",
+				data: new FormData(form),
+				processData: false,
+				contentType: false,
+				success: function success(respond) {
+					$('.popup').removeClass('show');
+					$('#successForm').addClass('show');
+				}
+			});
+			return false;
+		}
+	});
+});
+
+
+const mainSlider = new Swiper(".index-slaider__wrapper", {
 	allowTouchMove: false,
 	loop: true,
 	autoplay: {
 		delay: 3000,
 		stopOnLastSlide: true,
-		disableOnInteraction: false,
 	},
 	keyboard: {
 		enabled: true,
 		onlyInViewport: false,
 	},
 });
-
-
-var feedbacksSwiper = new Swiper("#feedbacksSlider", {
+const feedbacksSwiper = new Swiper("#feedbacksSlider", {
 	loop: true,
 	spaceBetween: 15,
 	slidesPerView: "auto",
@@ -356,7 +331,7 @@ var feedbacksSwiper = new Swiper("#feedbacksSlider", {
 		},
 	}
 });
-var swiper = new Swiper(".mySwiper", {
+const swiper = new Swiper(".mySwiper", {
 	loop: true,
 	spaceBetween: 5,
 	slidesPerView: 3,
@@ -377,11 +352,23 @@ var swiper = new Swiper(".mySwiper", {
 		},
 	}
 });
-var swiper2 = new Swiper(".mySwiper2", {
+const swiper2 = new Swiper(".mySwiper2", {
 	loop: true,
 	spaceBetween: 10,
 
 	thumbs: {
 		swiper: swiper,
+	},
+});
+const feedbacksSlider = new Swiper(".feedbackSlider", {
+	spaceBetween: 5,
+	slidesPerView: 1,
+	freeMode: true,
+	hashNavigation: {
+		watchState: true,
+	},
+	navigation: {
+		nextEl: ".feedbackSlider-next",
+		prevEl: ".feedbackSlider-prev",
 	},
 });
