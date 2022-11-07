@@ -1,3 +1,58 @@
+.banner-header {
+	position: relative;
+	background: #0062A9;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 11px 35px;
+	transition: all 0.5s ease;
+}
+.banner-header.hide {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: -100px;
+}
+.banner-header p {
+	padding: 0;
+	margin: 0;
+}
+.banner-header a {
+	font-weight: 700;
+	color: inherit;
+	text-decoration-line: underline;
+}
+.banner-header__close {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 18px;
+	border-radius: 40px;
+	width: 24px;
+	height: 24px;
+	background-color: transparent;
+	background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.9391 11.9994L15.803 9.14179C15.9284 9.01635 15.9989 8.84623 15.9989 8.66884C15.9989 8.49146 15.9284 8.32133 15.803 8.1959C15.6776 8.07047 15.5075 8 15.3301 8C15.1528 8 14.9827 8.07047 14.8572 8.1959L12 11.0602L9.14276 8.1959C9.01735 8.07047 8.84725 8 8.66988 8C8.49252 8 8.32242 8.07047 8.19701 8.1959C8.07159 8.32133 8.00114 8.49146 8.00114 8.66884C8.00114 8.84623 8.07159 9.01635 8.19701 9.14179L11.0609 11.9994L8.19701 14.8571C8.13458 14.919 8.08504 14.9927 8.05122 15.0738C8.01741 15.155 8 15.2421 8 15.33C8 15.418 8.01741 15.505 8.05122 15.5862C8.08504 15.6674 8.13458 15.741 8.19701 15.803C8.25892 15.8654 8.33259 15.915 8.41375 15.9488C8.49491 15.9826 8.58196 16 8.66988 16C8.75781 16 8.84486 15.9826 8.92602 15.9488C9.00718 15.915 9.08085 15.8654 9.14276 15.803L12 12.9387L14.8572 15.803C14.9192 15.8654 14.9928 15.915 15.074 15.9488C15.1551 15.9826 15.2422 16 15.3301 16C15.418 16 15.5051 15.9826 15.5863 15.9488C15.6674 15.915 15.7411 15.8654 15.803 15.803C15.8654 15.741 15.915 15.6674 15.9488 15.5862C15.9826 15.505 16 15.418 16 15.33C16 15.2421 15.9826 15.155 15.9488 15.0738C15.915 14.9927 15.8654 14.919 15.803 14.8571L12.9391 11.9994Z' fill='white'/%3E%3Crect x='0.5' y='0.5' width='23' height='23' rx='11.5' stroke='white'/%3E%3C/svg%3E%0A");
+}
+@media (max-width: 639.8px) {
+	.banner-header {
+		font-size: 10px;
+		line-height: 150%;
+		text-align: left;
+		padding: 8px 0px;
+	}
+	.banner-header p {
+		padding-right: 50px;
+	}
+	.banner-header__close {
+		right: 10px;
+	}
+}
 .popup {
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
@@ -2046,6 +2101,8 @@ button.submit:active {
 	-ms-flex-align: stretch;
 	align-items: stretch;
 	gap: 32px;
+	max-width: 890px;
+  margin: 0 auto;
 	margin-top: 77px;
 }
 .offers-item {
@@ -2091,7 +2148,7 @@ button.submit:active {
 	font-weight: 400;
 	line-height: 24px;
 	opacity: 0.8;
-	max-width: 60%;
+	max-width: 62%;
 	margin-bottom: 5px;
 }
 .offers-item__title {
