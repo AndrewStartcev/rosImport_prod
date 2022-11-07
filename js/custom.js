@@ -181,24 +181,21 @@ const headeShadow = document.querySelector('.header-shadow');
 
 if (iconMenu) {
 	iconMenu.addEventListener("click", function (e) {
-		//document.body.classList.toggle('_lock');
+		document.body.classList.toggle('_lock');
 		iconMenu.classList.toggle('_active');
 		menuBody.classList.toggle('_active');
 		let lockPaddingValue = window.innerWidth - document.querySelector('.wraper').offsetWidth + 'px';
 		//bodyUnlock();
 		if (document.body.classList.contains('_lock')) {
 			//alert("Есть");
-			document.body.style.paddingRight = '0px';
 			document.body.classList.remove('_lock');
 		} else {
 			//alert("l")
-			document.body.style.paddingRight = lockPaddingValue;
 			document.body.classList.add('_lock');
 		}
 	});
 	headeShadow.addEventListener("click", function (e) {
 		if (document.body.classList.contains('_lock')) {
-			document.body.style.paddingRight = '0px';
 			document.body.classList.remove('_lock');
 			menuBody.classList.remove('_active');
 			iconMenu.classList.remove('_active');
