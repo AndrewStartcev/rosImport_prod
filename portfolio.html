@@ -25,7 +25,7 @@
 							<span>Н</span>
 							<span>Ю</span>
 						</div>
-						<a href="#" data-da=".header__body, 1064, last" class="header-logo">
+						<a href="index.html" data-da=".header__body, 1064, last" class="header-logo">
 							<img src="img/header/1.svg" alt="">
 						</a>
 					</div>
@@ -229,7 +229,7 @@
 			<div class="container">
 				<div class="page-head">
 					<ul class="breadcrumbs">
-						<li class="breadcrumbs__item"><a href="#">Главная</a></li>
+						<li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
 						<li class="breadcrumbs__item active"><span> Наши кейсы</span></li>
 					</ul>
 					<h1 class="page-head__title">Наши кейсы</h1>
@@ -370,6 +370,42 @@
 		</footer>
 	</div>
 
+	<div class="popup" id="orderForm">
+		<div class="popup__content">
+			<div class="popup__body --small">
+				<button class="popup__close"></button>
+				<div class="orderForm"><img class="popup__logo" src="img/logo.png" alt="" />
+					<h2 class="orderForm__title">Оставить заявку</h2>
+					<form class="orderForm__form" id="orderFormItem" action="">
+						<div class="input-group">
+							<label for="userName">Ваше имя <i>*</i></label>
+							<!--INFO: Класс невалидного поля .error-->
+							<input type="text" name="user_name" required="required" id="userName" />
+						</div>
+						<div class="input-group">
+							<label for="userTel">Ваш e-mail или номер телефона <i>*</i></label>
+							<!--INFO: Класс невалидного поля .error-->
+							<input type="text" name="user_tel" required="required" id="userTel" />
+						</div>
+						<div class="input-group">
+							<label for="userQuestion">Ваш вопрос</label>
+							<!--INFO: Класс невалидного поля .error-->
+							<textarea id="userQuestion" name="user_question"></textarea>
+						</div>
+						<label class="checkbox-group" for="userPolicy">
+							<input id="userPolicy" type="checkbox" name="policy" /><span>Я согласен(а) на обработку моих <a href="#">
+									персональных данных</a></span>
+						</label>
+						<!--INFO: Чтобы показать блок, нужно добавить класс .show-->
+						<div class="invalid-feedback">
+							<p>Обязательно к заполнению! Проверьте правильность ввода</p>
+						</div>
+						<button class="submit" type="submit">Отправить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="popup" id="feedbackForm">
 		<div class="popup__content">
 			<div class="popup__body">
@@ -379,19 +415,19 @@
 					<form class="feedbackForm__form" id="feedbackFormItem" action="" enctype="multipart/form-data">
 						<div class="feedbackForm__row">
 							<div class="input-group">
-								<label for="userName">Ваше имя <i>*</i></label>
-								<!--INFO: Класс невалидного поля .is-invalid-->
-								<input type="text" name="user_name" required="required" id="userName" />
+								<label for="userNameF">Ваше имя <i>*</i></label>
+								<!--INFO: Класс невалидного поля .error-->
+								<input type="text" name="user_name" required="required" id="userNameF" />
 							</div>
 							<div class="input-group">
-								<label for="userTel">Ваш e-mail или номер телефона <i>*</i></label>
-								<!--INFO: Класс невалидного поля .is-invalid-->
-								<input type="text" name="user_tel" required="required" id="userTel" />
+								<label for="userTelF">Ваш e-mail или номер телефона <i>*</i></label>
+								<!--INFO: Класс невалидного поля .error-->
+								<input type="text" name="user_tel" required="required" id="userTelF" />
 							</div>
 						</div>
 						<div class="input-group --max">
 							<label for="userFeedbacks">Напишите ваш отзыв</label>
-							<!--INFO: Класс невалидного поля .is-invalid-->
+							<!--INFO: Класс невалидного поля .error-->
 							<textarea id="userFeedbacks" name="user_feedbacks"></textarea>
 						</div>
 						<div class="feedbackForm__row">
@@ -404,7 +440,7 @@
 											<p>Нажмите на область с иконкой, чтобы прикрепить фото</p>
 										</div>
 									</div>
-									<!--INFO: Класс невалидного поля .is-invalid-->
+									<!--INFO: Класс невалидного поля .error-->
 									<input type="file" multiple name="files[]" id="userPhoto" />
 								</div>
 								<label class="checkbox-group" for="isPublish">
@@ -431,7 +467,7 @@
 					<form class="authForm__form" id="authFormItem" action="">
 						<div class="input-group">
 							<label for="login">Ваш логин</label>
-							<!--INFO: Класс невалидного поля .is-invalid-->
+							<!--INFO: Класс невалидного поля .error-->
 							<input type="text" id="login" />
 						</div>
 						<div class="input-group">

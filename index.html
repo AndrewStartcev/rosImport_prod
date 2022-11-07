@@ -31,7 +31,7 @@
 							<span>Н</span>
 							<span>Ю</span>
 						</div>
-						<a href="#" data-da=".header__body, 1064, last" class="header-logo">
+						<a href="index.html" data-da=".header__body, 1064, last" class="header-logo">
 							<img src="img/header/1.svg" alt="">
 						</a>
 					</div>
@@ -2116,17 +2116,17 @@
 					<form class="orderForm__form" id="orderFormItem" action="">
 						<div class="input-group">
 							<label for="userName">Ваше имя <i>*</i></label>
-							<!--INFO: Класс невалидного поля .is-invalid-->
+							<!--INFO: Класс невалидного поля .error-->
 							<input type="text" name="user_name" required="required" id="userName" />
 						</div>
 						<div class="input-group">
 							<label for="userTel">Ваш e-mail или номер телефона <i>*</i></label>
-							<!--INFO: Класс невалидного поля .is-invalid-->
+							<!--INFO: Класс невалидного поля .error-->
 							<input type="text" name="user_tel" required="required" id="userTel" />
 						</div>
 						<div class="input-group">
 							<label for="userQuestion">Ваш вопрос</label>
-							<!--INFO: Класс невалидного поля .is-invalid-->
+							<!--INFO: Класс невалидного поля .error-->
 							<textarea id="userQuestion" name="user_question"></textarea>
 						</div>
 						<label class="checkbox-group" for="userPolicy">
@@ -2152,19 +2152,19 @@
 					<form class="feedbackForm__form" id="feedbackFormItem" action="" enctype="multipart/form-data">
 						<div class="feedbackForm__row">
 							<div class="input-group">
-								<label for="userName">Ваше имя <i>*</i></label>
-								<!--INFO: Класс невалидного поля .is-invalid-->
-								<input type="text" name="user_name" required="required" id="userName" />
+								<label for="userNameF">Ваше имя <i>*</i></label>
+								<!--INFO: Класс невалидного поля .error-->
+								<input type="text" name="user_name" required="required" id="userNameF" />
 							</div>
 							<div class="input-group">
-								<label for="userTel">Ваш e-mail или номер телефона <i>*</i></label>
-								<!--INFO: Класс невалидного поля .is-invalid-->
-								<input type="text" name="user_tel" required="required" id="userTel" />
+								<label for="userTelF">Ваш e-mail или номер телефона <i>*</i></label>
+								<!--INFO: Класс невалидного поля .error-->
+								<input type="text" name="user_tel" required="required" id="userTelF" />
 							</div>
 						</div>
 						<div class="input-group --max">
 							<label for="userFeedbacks">Напишите ваш отзыв</label>
-							<!--INFO: Класс невалидного поля .is-invalid-->
+							<!--INFO: Класс невалидного поля .error-->
 							<textarea id="userFeedbacks" name="user_feedbacks"></textarea>
 						</div>
 						<div class="feedbackForm__row">
@@ -2177,7 +2177,7 @@
 											<p>Нажмите на область с иконкой, чтобы прикрепить фото</p>
 										</div>
 									</div>
-									<!--INFO: Класс невалидного поля .is-invalid-->
+									<!--INFO: Класс невалидного поля .error-->
 									<input type="file" multiple name="files[]" id="userPhoto" />
 								</div>
 								<label class="checkbox-group" for="isPublish">
@@ -2204,7 +2204,7 @@
 					<form class="authForm__form" id="authFormItem" action="">
 						<div class="input-group">
 							<label for="login">Ваш логин</label>
-							<!--INFO: Класс невалидного поля .is-invalid-->
+							<!--INFO: Класс невалидного поля .error-->
 							<input type="text" id="login" />
 						</div>
 						<div class="input-group">
