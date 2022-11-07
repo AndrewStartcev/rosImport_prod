@@ -540,3 +540,121 @@ if (Tab.length > 0) {
 		}
 	}
 }
+
+var testSlider = new Swiper(".test-body-wrapper__index", {
+	spaceBetween: 300,
+	slidesPerView: 1,
+	navigation: {
+		prevEl: ".test-body-wrapper__button_left",
+		nextEl: ".test-body-wrapper__button_right",
+	},
+	breakpoints: {
+		319.1: {
+			allowTouchMove: false,
+			autoHeight: true,
+		},
+		767.1: {
+			allowTouchMove: false,
+			autoHeight: false,
+		},
+	},
+});
+
+var sliderOne = document.getElementById('slider-one');
+
+if (sliderOne) {
+	noUiSlider.create(sliderOne, {
+		start: [1, 20],
+		connect: true,
+		range: {
+			'min': 1,
+			'max': 20
+		},
+	});
+
+	const sliderInput0 = document.getElementById('input_one-1');
+	const sliderInput1 = document.getElementById('input_one-2');
+	let inputsOne = [sliderInput0, sliderInput1];
+
+	sliderOne.noUiSlider.on('update', function (values, handle) {
+		inputsOne[handle].value = Math.round(values[handle]);
+	});
+
+	const setRangeSlider = (i, value) => {
+		let arr = [null, null];
+		arr[i] = value;
+		sliderOne.noUiSlider.set(arr);
+	};
+
+	inputsOne.forEach((el, index) => {
+		el.addEventListener('change', (e) => {
+			setRangeSlider(index, e.currentTarget.value);
+		});
+	})
+}
+
+var sliderTwue = document.getElementById('slider-twue');
+
+if (sliderTwue) {
+	noUiSlider.create(sliderTwue, {
+		start: 1,
+		behaviour: 'snap',
+		connect: [true, false],
+		range: {
+			'min': 1,
+			'max': 2000
+		}
+	});
+
+	const sliderInputTwue0 = document.getElementById('input_twue-1');
+	let inputsThue = [sliderInputTwue0];
+
+	sliderTwue.noUiSlider.on('update', function (values, handle) {
+		inputsThue[handle].value = Math.round(values[handle]);
+	});
+
+	const setRangeSlider2 = (i, value) => {
+		let arr = [null, null];
+		arr[i] = value;
+		sliderTwue.noUiSlider.set(arr);
+	};
+
+	inputsThue.forEach((el, index) => {
+		el.addEventListener('change', (e) => {
+			setRangeSlider2(index, e.currentTarget.value);
+		});
+	})
+}
+
+var sliderTrue = document.getElementById('slider-true');
+
+if (sliderTrue) {
+	noUiSlider.create(sliderTrue, {
+		start: 1,
+		behaviour: 'snap',
+		connect: [true, false],
+		range: {
+			'min': 1,
+			'max': 2000
+		}
+	});
+
+	const sliderInputTrue0 = document.getElementById('input_true-1');
+	let inputsTrue = [sliderInputTrue0];
+
+	sliderTrue.noUiSlider.on('update', function (values, handle) {
+		inputsTrue[handle].value = Math.round(values[handle]);
+	});
+
+	const setRangeSlider3 = (i, value) => {
+		let arr = [null, null];
+		arr[i] = value;
+		sliderTrue.noUiSlider.set(arr);
+	};
+
+	inputsTrue.forEach((el, index) => {
+		el.addEventListener('change', (e) => {
+			setRangeSlider3(index, e.currentTarget.value);
+		});
+	})
+}
