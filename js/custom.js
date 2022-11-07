@@ -8,11 +8,19 @@ function ibg() {
 }
 ibg();
 
-$("a[data-scroll]").click(function () {
-	var elementClick = $(this).attr("href");
-	var destination = $(elementClick).offset().top - 160;
-	$("body,html").animate({ scrollTop: destination }, 1200);
+$('a[data-scroll]').on('click', function () {
+
+	let href = $(this).attr('href');
+	$('html, body').animate({
+		scrollTop: $(href).offset().top - 120
+	}, {
+		duration: 500,   // по умолчанию «400»
+		easing: "swing" // по умолчанию «swing»
+	});
+
+	return false;
 });
+
 
 
 // Динамический адаптив  -----------------------------------------------------------------------------
@@ -199,10 +207,15 @@ if (iconMenu) {
 			document.body.classList.remove('_lock');
 			menuBody.classList.remove('_active');
 			iconMenu.classList.remove('_active');
-			//alert("l");
 		}
 	});
 }
+
+$('a[data-scroll]').click(function () {
+	document.body.classList.remove('_lock');
+	menuBody.classList.remove('_active');
+	iconMenu.classList.remove('_active');
+});
 
 $(window).scroll(function () {
 	if ($(window).scrollTop() > 300) {

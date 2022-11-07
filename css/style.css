@@ -297,7 +297,9 @@ font-family: 'Raleway', sans-serif;
     }
 
 .header {
-  padding: 7px 0; }
+  padding: 7px 0;
+position: relative;
+z-index: 555; }
   .header.fixed {
     position: fixed;
     top: 0;
@@ -3585,13 +3587,14 @@ button.submit:active {
 		-ms-grid-columns: (150px) [2];
 		grid-template-columns: repeat(2, 150px);
 		-ms-grid-rows: (150px) [20];
-		grid-template-rows: repeat(20, 150px);
+		grid-template-rows: repeat(21, 150px);
 	}
 	.schema__wrapper::after {
 		background: url('../img/icons/line_mobile.svg') top left/100% no-repeat;
 	}
 	.schema-item {
 		max-width: 178px;
+		margin-top: -20px;
 	}
 	.schema-item__icon {
 		width: 30px;
@@ -3667,21 +3670,22 @@ button.submit:active {
 		grid-column: 1;
 		-ms-grid-row: 10;
 		grid-row: 10;
-		margin-top: 0px;
+		margin-top: -62px;
 	}
 	.schema-item:nth-child(11) {
 		-ms-grid-column: 2;
 		grid-column: 2;
 		-ms-grid-row: 11;
 		grid-row: 11;
-		margin-top: 48px;
+		margin-top: 57px;
 	}
 	.schema-item:nth-child(12) {
 		-ms-grid-column: 1;
 		grid-column: 1;
 		-ms-grid-row: 12;
 		grid-row: 12;
-		margin-left: 5px;
+	margin-left: 81px;
+    margin-top: 95px;
 	}
 	.schema-item:nth-child(13) {
 		-ms-grid-column: 2;
@@ -3710,7 +3714,8 @@ button.submit:active {
 		grid-column: 1;
 		-ms-grid-row: 16;
 		grid-row: 16;
-		margin-top: 150px;
+		margin-top: 245px;
+    margin-left: 74px;
 	}
 	.schema-item:nth-child(17) {
 		-ms-grid-column: 2;
@@ -3722,23 +3727,24 @@ button.submit:active {
 	.schema-item:nth-child(18) {
 		-ms-grid-column: 1;
 		grid-column: 1;
-		-ms-grid-row: 18;
-		grid-row: 18;
-		margin-top: 150px;
+		-ms-grid-row: 19;
+		grid-row: 19;
+		margin-top: 20px;
+    margin-left: 70px;
 	}
 	.schema-item:nth-child(19) {
 		-ms-grid-column: 2;
 		grid-column: 2;
-		-ms-grid-row: 19;
-		grid-row: 19;
-		margin-top: 250px;
-	}
-	.schema-item:nth-child(20) {
-		-ms-grid-column: 1;
-		grid-column: 1;
 		-ms-grid-row: 20;
 		grid-row: 20;
-		margin-top: 20px;
+		margin-top: 30px;
+	}
+	.schema-item:nth-child(20) {
+		-ms-grid-column: 2;
+		grid-column: 2;
+		-ms-grid-row: 21;
+		grid-row: 21;
+		margin-top: 95px;
 	}
 	.schema-item.cricle {
 		height: 150px;
@@ -4004,7 +4010,7 @@ button.submit:active {
 	display: block;
 	width: 32px;
 	height: 32px;
-	background: url('../img/icons/smail_1.png') center center/contain no-repeat;
+	background: url('../img/icons/smail_2.png') center center/contain no-repeat;
 	position: absolute;
 	left: 0;
 	top: 50%;
@@ -4016,7 +4022,7 @@ button.submit:active {
 	font-weight: 700;
 }
 .problems-item__text:nth-child(2)::before {
-	background: url('../img/icons/smail_2.png') center center/contain no-repeat;
+	background: url('../img/icons/smail_1.png') center center/contain no-repeat;
 }
 @media (max-width: 1199.8px) {
 	.problems {
@@ -5490,7 +5496,8 @@ button.submit:active {
 	color: #0062a9;
 	opacity: 0.8;
 }
-.post-table button {
+.post-table a {
+	display: block;
 	margin-top: 20px;
 	padding: 24px 74px;
 	background: #c90910;
@@ -5501,7 +5508,7 @@ button.submit:active {
 	color: #fff;
   transition: all 0.5s ease;
 }
-.post-table button:hover {
+.post-table a:hover {
 	background: #88060a;
 }
 .post-slider {
