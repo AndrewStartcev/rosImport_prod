@@ -2497,6 +2497,9 @@ transition: all 0.5s ease; }
 .input-group input.error {
 	border-color: #c90910;
 }
+input.error {
+	border-color: #c90910;
+}
 .input-group input.error:focus {
 	outline: none;
 	border-color: #c90910;
