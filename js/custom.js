@@ -300,6 +300,7 @@ $("form").each(function () {
 					$('.submit').addClass('spiner');
 				},
 				success: function success(respond) {
+					$(el)[0].reset();
 					$('.submit').removeClass('spiner');
 					$('.popup').removeClass('show');
 					$('#successForm').addClass('show');
