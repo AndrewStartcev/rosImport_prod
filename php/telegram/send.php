@@ -59,10 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $txt .= "<b>Cрок доставки:</b> от: " . $dateStart . ". До: " . $dateEnd . "%0A";
         }
         if (isset($totalWeight) && !empty($totalWeight)) {
-            $txt .= "<b>Вес:</b> от: " . $totalWeight . "%0A";
+            $txt .= "<b>Вес:</b> " . $totalWeight . "%0A";
         }
         if (isset($totalVolume) && !empty($totalVolume)) {
-            $txt .= "<b>Объем:</b> от: " . $totalVolume . "%0A";
+            $txt .= "<b>Объем:</b>" . $totalVolume . "%0A";
         }
     }
     if (isset($query ) && !empty($query )) {

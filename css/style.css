@@ -221,7 +221,13 @@ font-family: 'Raleway', sans-serif;
   padding: 25px;
   padding-top: 80px;
   border-radius: 16px; }
-
+.fill-application__wrapper:hover {
+	background: transparent;
+	color: #fff
+}
+.fill-application__wrapper:hover .fill-application__title span  {
+	color: #fff
+}
 .fill-application__text {
   font-family: Manrope;
   font-size: 16px;
