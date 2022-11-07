@@ -5975,11 +5975,18 @@ button.submit:active {
   background: #1893ED;
   border-radius: 30px;
   margin: 0 20px;
-  padding: 140px 0; }
+  padding: 140px 0;
+	padding-top: 450px;}
   @media (max-width: 767px) {
     .test {
       margin: 0;
-      padding: 50px 0; } }
+      padding: 50px 0;
+		padding-top: 250px;} }
+		 @media (max-width: 644px) {
+    .test {
+      margin: 0;
+      padding: 50px 0;
+		padding-top: 100px;} }
 
 .test-title {
   display: -webkit-box;
