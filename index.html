@@ -9,11 +9,12 @@
 	<link rel="icon" type="image/x-icon" href="img/favicon.svg">
 	<link rel="stylesheet" href="libs/swiper-bundle.min.css">
 	<link rel="stylesheet" href="libs/nouislider.min.css">
-	<link rel="stylesheet" href="css/style.css?v=1.2">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css?ver=1.0">
 </head>
 
 <body>
-	<div class="wraper">
+	<div id="top" class="wraper">
 		<div class="banner-header">
 			<div class="container">
 				<p>До 31 сентября скидка на первый заказ до 50%! <a href="#test" data-scroll>Рассчитать размер скидки</a></p>
@@ -232,7 +233,7 @@
 				</div>
 			</div>
 		</header>
-		<div class="index-slaider">
+		<div data-aos="fade-up" class="index-slaider">
 			<div class="index-slaider__wrapper">
 				<div class="swiper-wrapper">
 					<div class="index-slaider__blok swiper-slide">
@@ -334,21 +335,21 @@
 		<div class="reasons-choose">
 			<div class="container">
 				<div class="reasons-choose__wrapper">
-					<div class="reasons-choose__title">
+					<div data-aos="fade-right" class="reasons-choose__title">
 						Несколько причин выбрать именно нас
 					</div>
 					<div class="reasons-choose__body">
 						<div>
-							<div class="reasons-choose__blok reasons-choose__blok_100">
+							<div data-aos="fade-left" class="reasons-choose__blok reasons-choose__blok_100">
 								01 / Мы даём ставку <b>выгоднее</b> конкурентов
 							</div>
-							<div class="reasons-choose__blok reasons-choose__blok_50">
+							<div data-aos="fade-left" class="reasons-choose__blok reasons-choose__blok_50">
 								02 / <b>Сертифицированная</b> деятельность
 							</div>
-							<div class="reasons-choose__blok reasons-choose__blok_50">
+							<div data-aos="fade-left" class="reasons-choose__blok reasons-choose__blok_50">
 								03 / Офисы в <b>Китае и России</b>
 							</div>
-							<div class="reasons-choose__blok reasons-choose__blok_100">
+							<div data-aos="fade-left" class="reasons-choose__blok reasons-choose__blok_100">
 								04 /Предоставим закрывающие <b>документы</b>
 							</div>
 						</div>
@@ -359,12 +360,12 @@
 		<div class="experience" id="portfolio">
 			<div class="container">
 				<div class="experience__wrapper">
-					<div class="experience__title">
+					<div data-aos="fade-right" class="experience__title">
 						Наш опыт работы <br>
 						более 12 лет
 					</div>
 					<div class="experience__body">
-						<div class="experience-blok">
+						<div data-aos="zoom-in-up" class="experience-blok">
 							<a href="post.html" data-da=".experience__body_mb, 767, last"
 								class="experience-blok__item _button-wrapper-more">
 								<div class="experience-blok__img ibg">
@@ -411,7 +412,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="experience-blok">
+						<div data-aos="zoom-in-up" class="experience-blok">
 							<a href="post.html" data-da=".experience__body_mb, 767, last"
 								class="experience-blok__item _button-wrapper-more experience-blok__item_big experience-blok__item_big-mb">
 								<div class="experience-blok__img ibg">
@@ -451,7 +452,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="experience-blok">
+						<div data-aos="zoom-in-up" class="experience-blok">
 							<a href="post.html" data-da=".experience__body_mb, 767, last"
 								class="experience-blok__item _button-wrapper-more">
 								<div class="experience-blok__img ibg">
@@ -502,14 +503,14 @@
 		<div class="our-possibilities" id="services">
 			<div class="container">
 				<div class="our-possibilities__wrapper">
-					<div class="our-possibilities__title">
+					<div data-aos="zoom-in-right" class="our-possibilities__title">
 						Чем можем быть полезны для Вас:
 					</div>
-					<div class="our-possibilities__title-text">
+					<div data-aos="zoom-in-right" class="our-possibilities__title-text">
 						Все вопросы с таможенным оформлением берем на себя!
 					</div>
 					<div class="our-possibilities__body">
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/1.svg" alt="">
 							</div>
@@ -517,7 +518,7 @@
 								Проконсультируем по вопросам бизнеса с Китаем от «А» до «Я»
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/2.svg" alt="">
 							</div>
@@ -525,7 +526,7 @@
 								Производим расчет рентабельности товарного бизнеса с Китаем
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/3.svg" alt="">
 							</div>
@@ -533,7 +534,7 @@
 								Организуем логистику до двери с оптимизацией таможенных платежей
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/4.svg" alt="">
 							</div>
@@ -541,7 +542,7 @@
 								Помогаем начать и «продвинуть» бизнес на маркетплейсах
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/5.svg" alt="">
 							</div>
@@ -549,7 +550,7 @@
 								Переведим оплату за товар поставщику без комиссии
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/6.svg" alt="">
 							</div>
@@ -557,7 +558,7 @@
 								Проводим инспекцию производства и юр.надёжность поставщика
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/7.svg" alt="">
 							</div>
@@ -565,7 +566,7 @@
 								Собираем и доставляем образцы в самые короткие сроки
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/8.svg" alt="">
 							</div>
@@ -573,7 +574,7 @@
 								Проверяем, пересчитываем, и упаковываем Ваш товар
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/9.svg" alt="">
 							</div>
@@ -581,7 +582,7 @@
 								Находим нужный товар или производителя в Китае
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/10.svg" alt="">
 							</div>
@@ -589,7 +590,7 @@
 								Собираем материалы с выставок / мероприятий и оптовых рынков Китая
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/11.svg" alt="">
 							</div>
@@ -597,7 +598,7 @@
 								Подготавливаем все необходимые экспортно-импортные документы
 							</div>
 						</div>
-						<div class="our-possibilities-blok">
+						<div data-aos="zoom-out-up" class="our-possibilities-blok">
 							<div class="our-possibilities-blok__img">
 								<img src="img/our-possibilities/12.svg" alt="">
 							</div>
@@ -613,16 +614,16 @@
 			<div class="container">
 				<div class="our-possibilities-bottom__wrapper">
 					<div class="index-slaider__blok">
-						<div class="index-slaider__title">
+						<div data-aos="zoom-in-right" class="index-slaider__title">
 							<span class="border-while">Выгодный</span>
 							курс перевода в Китай
 							<span class="backgraund-blue">$, CNY</span>
 						</div>
 						<div class="index-slaider__body">
-							<div class="index-slaider__img ibg">
+							<div data-aos="zoom-in-right" class="index-slaider__img ibg">
 								<img src="img/index-slaider/5.png" alt="">
 							</div>
-							<div class="index-slaider__content">
+							<div data-aos="zoom-in-left" class="index-slaider__content">
 								<div class="index-slaider__text">
 									Вы можете рассчитать стоимость прямо сейчас
 								</div>
@@ -638,7 +639,7 @@
 		<div class="gallery">
 			<div class="container">
 				<div class="gallery__wrapper">
-					<div class="gallery__title">
+					<div data-aos="zoom-in-right" class="gallery__title">
 						Предоставляем фотоотчет <br>
 						на каждом этапе
 					</div>
@@ -650,7 +651,7 @@
 							<span class="icon-pointer-average"></span>
 						</div>
 					</div>
-					<div class="gallery__body gallery__body_1">
+					<div data-aos="zoom-out-up" class="gallery__body gallery__body_1">
 						<div class="swiper-wrapper gallery__body_wrapper-pc">
 							<div class="gallery-blok swiper-slide">
 								<div data-da=".gallery__body_wrapper_1, 540, last" class="gallery-blok__item swiper-slide">
@@ -752,7 +753,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="gallery__body_mb gallery__body_mb_1">
+					<div data-aos="zoom-out-up" class="gallery__body_mb gallery__body_mb_1">
 						<div class="swiper-wrapper gallery__body_wrapper_1">
 						</div>
 					</div>
@@ -761,16 +762,16 @@
 		</div>
 		<div class="delivery-methods _tab" id="delivery">
 			<div class="container">
-				<div class="delivery-methods__title">
+				<div data-aos="zoom-out-right" class="delivery-methods__title">
 					Любой способ доставки на Ваш выбор
 				</div>
 				<div class="delivery-method__wrapper">
 					<div class="delivery-methods__content">
 						<div class="delivery-method-header">
-							<div class="delivery-method-header__title">
+							<div data-aos="zoom-out-right" class="delivery-method-header__title">
 								Выберите способ перевозки
 							</div>
-							<div class="delivery-method-header__list _tab-link-body">
+							<div data-aos="zoom-out-right" class="delivery-method-header__list _tab-link-body">
 								<a href="#_tab-body1" onclick="return" class="_tab-link delivery-method-header__link _active">
 									<span class="delivery-method-header__icon icon-airplane"></span>
 									<span class="delivery-method-header__text">
@@ -797,8 +798,9 @@
 								</a>
 							</div>
 						</div>
-						<div class="delivery-methods__body _tab-wrapper">
-							<div class="delivery-methods-tab _tab-body delivery-methods-tab-1" id="_tab-body1">
+						<div data-aos="zoom-out-right" class="delivery-methods__body _tab-wrapper">
+							<div data-aos="zoom-out-right" class="delivery-methods-tab _tab-body delivery-methods-tab-1"
+								id="_tab-body1">
 								<div class="delivery-methods-tariffs">
 									<div class="delivery-methods-tariffs__title">
 										Доступные тарифы
@@ -1108,7 +1110,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="delivery-methods__maps ibg">
+					<div data-aos="zoom-out-left" class="delivery-methods__maps ibg">
 						<img src="img/tabs/1.png" alt="">
 					</div>
 				</div>
@@ -1117,16 +1119,17 @@
 		<section class="know">
 			<div class="container">
 				<div class="know__head">
-					<h2 class="know__title">Мы работаем для вас с 2005 года!</h2>
-					<p class="know__text">Вы можете самостоятельно проверить любой сайт по ссылке <a href="#">whois.ru</a></p>
+					<h2 data-aos="zoom-out-right" class="know__title">Мы работаем для вас с 2005 года!</h2>
+					<p data-aos="zoom-out-right" class="know__text">Вы можете самостоятельно проверить любой сайт по ссылке <a
+							href="#">whois.ru</a></p>
 				</div>
 				<div class="know__wrapper">
-					<div class="know__item">
+					<div data-aos="zoom-out-up" class="know__item">
 						<div class="know__cover min"><img src="img/know_cover_3.jpg" alt=""></div>
 						<div class="know__name">Rosimport.ru — 17 лет</div><a class="know__descr" href="https://www.rosimport.ru"
 							target="_blank">https://www.rosimport.ru</a>
 					</div>
-					<div class="know__item">
+					<div data-aos="zoom-out-up" class="know__item">
 						<div class="know__cover min"><img src="img/know_cover_4.jpg" alt=""></div>
 						<div class="know__name">Rosimport.pro — 9 лет</div><a class="know__descr" href="https://www.rosimport.pro"
 							target="_blank">https://www.rosimport.pro</a>
@@ -1136,7 +1139,7 @@
 		</section>
 		<div class="test" id="test">
 			<div class="container">
-				<div class="test-title index-slaider__title">
+				<div data-aos="zoom-out-right" class="test-title index-slaider__title">
 					<div class="test-title__left">
 						<span class="border-while">До конца сентября</span> <br>
 						на первый заказ
@@ -1149,7 +1152,7 @@
 					</div>
 				</div>
 				<div class="test__wrapper">
-					<div class="test__timer">
+					<div data-aos="zoom-out-right" class="test__timer">
 						<div class="timer">
 							<div class="timer__title-h1">
 								До конца акции осталось:
@@ -1191,7 +1194,7 @@
 							</div>
 						</a>
 					</div>
-					<div class="test-body">
+					<div data-aos="zoom-out-left" class="test-body">
 						<div class="test-body__title">
 							Вы можете рассчитать <br>
 							стоимость и размер скидки
@@ -1383,11 +1386,11 @@
 		</div>
 		<section class="schema" id="schema">
 			<div class="container">
-				<div class="schema__head">
+				<div data-aos="zoom-out-right" class="schema__head">
 					<h2>Понятная и прозрачная схема</h2>
 					<p>на примере доставки груза из Китая на нашу компанию «КАРГО»</p>
 				</div>
-				<div class="schema__wrapper">
+				<div data-aos="zoom-out-right" class="schema__wrapper">
 					<div class="schema-item">
 						<h3 class="schema-item__name">Этап 1</h3><img class="schema-item__icon" src="img/icons/schema-1.svg" alt="">
 						<p class="schema-item__text">Заявка/запрос</p>
@@ -1485,7 +1488,7 @@
 		<div class="gallery gallery_no-text">
 			<div class="container">
 				<div class="gallery__wrapper">
-					<div class="gallery__title">
+					<div data-aos="zoom-out-right" class="gallery__title">
 						Здесь мы принимаем, <br>
 						обработываем и выдаем Ваши грузы
 					</div>
@@ -1497,7 +1500,7 @@
 							<span class="icon-pointer-average"></span>
 						</div>
 					</div>
-					<div class="gallery__body gallery__body_2">
+					<div data-aos="zoom-out-up" class="gallery__body gallery__body_2">
 						<div class="swiper-wrapper gallery__body_wrapper-pc">
 							<div class="gallery-blok swiper-slide">
 								<div data-da=".gallery__body_wrapper_2, 540, last" class="gallery-blok__item swiper-slide">
@@ -1579,15 +1582,15 @@
 
 		<section class="know">
 			<div class="container">
-				<div class="know__head">
+				<div data-aos="zoom-out-right" class="know__head">
 					<h2 class="know__title">Знай все о своем грузе 24/7</h2>
 				</div>
 				<div class="know__wrapper">
-					<a class="know__item" href="#authForm" data-popup="">
+					<a data-aos="zoom-out-up" class="know__item" href="#authForm" data-popup="">
 						<div class="know__cover"><img src="img/know_cover_1.jpg" alt=""></div>
 						<div class="know__name">Личный кабинет</div>
 					</a>
-					<a class="know__item" href="https://t.me/rosimport_bot" target="_blank">
+					<a data-aos="zoom-out-up" class="know__item" href="https://t.me/rosimport_bot" target="_blank">
 						<div class="know__cover"><img src="img/know_cover_2.jpg" alt=""></div>
 						<div class="know__name">Телеграм - помощник</div>
 					</a>
@@ -1597,10 +1600,10 @@
 		<div class="reasons-choose reasons-choose--big">
 			<div class="container">
 				<div class="reasons-choose__wrapper">
-					<div class="reasons-choose__title">
+					<div data-aos="zoom-out-right" class="reasons-choose__title">
 						Наш сервис позволяет вам
 					</div>
-					<div class="reasons-choose__body">
+					<div data-aos="zoom-out-left" class="reasons-choose__body">
 						<div>
 							<div class="reasons-choose__blok reasons-choose__blok_100">
 								01 / <b>Самостоятельно</b> производить расчет стоимости
@@ -1624,9 +1627,9 @@
 		</div>
 		<section class="problems" id="problems">
 			<div class="container">
-				<h2>Вам знакомы эти проблемы? <br> Как мы их решили</h2>
+				<h2 data-aos="zoom-out-right">Вам знакомы эти проблемы? <br> Как мы их решили</h2>
 				<div class="problems__list">
-					<div class="problems-item">
+					<div data-aos="zoom-out-up" class="problems-item">
 						<div class="problems-item__content">
 							<h3><span>#1</span> Груз не отслеживается</h3>
 							<div class="problems-item__text">Карго-компания не может внятно объяснить, где в данный момент находится
@@ -1638,7 +1641,7 @@
 						</div>
 						<div class="problems-item__cover"><img src="img/problems_1.jpg" alt=""></div>
 					</div>
-					<div class="problems-item">
+					<div data-aos="zoom-out-up" class="problems-item">
 						<div class="problems-item__content">
 							<h3><span>#2</span> Дополнительные расходы</h3>
 							<div class="problems-item__text">Дополнительные расходы, как правило возникают неожиданно и стоят
@@ -1649,7 +1652,7 @@
 						</div>
 						<div class="problems-item__cover"><img src="img/problems_2.jpg" alt=""></div>
 					</div>
-					<div class="problems-item">
+					<div data-aos="zoom-out-up" class="problems-item">
 						<div class="problems-item__content">
 							<h3><span>#3</span> Повреждение груза</h3>
 							<div class="problems-item__text">Груз приходит в повреждённом виде, вскрытые коробки или отсутствует
@@ -1660,7 +1663,7 @@
 						</div>
 						<div class="problems-item__cover"><img src="img/problems_3.jpg" alt=""></div>
 					</div>
-					<div class="problems-item">
+					<div data-aos="zoom-out-up" class="problems-item">
 						<div class="problems-item__content">
 							<h3><span>#4</span> Страховка как-бы есть, но её как-бы и нет…</h3>
 							<div class="problems-item__text">Многие карго-компании не предоставлют никаких доказательств страхования
@@ -1671,7 +1674,7 @@
 						</div>
 						<div class="problems-item__cover"><img src="img/problems_4.jpg" alt=""></div>
 					</div>
-					<div class="problems-item">
+					<div data-aos="zoom-out-up" class="problems-item">
 						<div class="problems-item__content">
 							<h3><span>#5</span> Оповещение</h3>
 							<div class="problems-item__text">Оповещение по факту прихода груза — порой вызывают большие неудобства,
@@ -1682,7 +1685,7 @@
 						</div>
 						<div class="problems-item__cover"><img src="img/problems_5.jpg" alt=""></div>
 					</div>
-					<div class="problems-item">
+					<div data-aos="zoom-out-up" class="problems-item">
 						<div class="problems-item__content">
 							<h3><span>#6</span>Одна форма оплаты</h3>
 							<div class="problems-item__text">Чаще всего карго-компании принимают только наличные в долларах,
@@ -1694,7 +1697,7 @@
 						</div>
 						<div class="problems-item__cover"><img src="img/problems_6.jpg" alt=""></div>
 					</div>
-					<div class="problems-item">
+					<div data-aos="zoom-out-up" class="problems-item">
 						<div class="problems-item__content">
 							<h3><span>#7</span> Ставка вырастает по факту прихода груза</h3>
 							<div class="problems-item__text">Недобросовестные карго-компании, стараясь получить клиента любой ценой,
@@ -1705,7 +1708,7 @@
 						</div>
 						<div class="problems-item__cover"><img src="img/problems_7.jpg" alt=""></div>
 					</div>
-					<div class="problems-item">
+					<div data-aos="zoom-out-up" class="problems-item">
 						<div class="problems-item__content">
 							<h3><span>#8</span> Груз не доходит до места назначения или не выдерживаются сроки</h3>
 							<div class="problems-item__text">Недобросовестные компании, снижая издержки, пытаются провезти груз
@@ -1721,39 +1724,40 @@
 		</section>
 		<div class="guarantee">
 			<div class="container">
-				<h2>Наши гарантии для Вашего спокойствия</h2>
+				<h2 data-aos="zoom-out-right">Наши гарантии для Вашего спокойствия</h2>
 				<div class="guarantee__wrapper">
-					<div class="guarantee__item"><span>/01</span>
+					<div data-aos="zoom-out-up" class="guarantee__item"><span>/01</span>
 						<h3>Страхование</h3>
 						<p>Официальное страхование груза с предоставлением полиса</p>
 					</div>
-					<div class="guarantee__item"><span>/02</span>
+					<div data-aos="zoom-out-up" class="guarantee__item"><span>/02</span>
 						<h3>Работа по договору</h3>
 						<p>Компенсация повреждений и задержки сверх оговорённого срока, фиксированная стоимость</p>
 					</div>
-					<div class="guarantee__item"><span>/03</span>
+					<div data-aos="zoom-out-up" class="guarantee__item"><span>/03</span>
 						<h3>Предоставление документов</h3>
 						<p>Предоставление фото, накладной, контрольное взвешивание в РФ</p>
 					</div>
-					<div class="guarantee__item"><span>/04</span>
+					<div data-aos="zoom-out-up" class="guarantee__item"><span>/04</span>
 						<h3>Собственный склад</h3>
 						<p>Выгрузка на собственном складе! Никаких дополнительных поборов за въезд, погрузку и т.д.</p>
 					</div>
-					<div class="guarantee__item"><span>/05</span>
+					<div data-aos="zoom-out-up" class="guarantee__item"><span>/05</span>
 						<h3>Отслеживание груза 24/7</h3>
 						<p>На всех транспортных средствах установлена система мониторинга передвижения</p>
 					</div>
-					<div class="guarantee__cover"><img src="img/guarantee.jpg" alt=""></div>
+					<div data-aos="zoom-out-up" class="guarantee__cover"><img src="img/guarantee.jpg" alt=""></div>
 				</div>
 			</div>
 		</div>
 		<section class="offers">
 			<div class="container">
-				<h2>Не нашли ответ на свой вопрос? Мы ответим <span>в течении 5 минут</span></h2>
-				<div class="offers__wrapper"><a class="offers-item" href="#orderForm" data-popup=""><span
-							class="offers-item__wrapper"><span class="offers-item__subtitle">Нужно заполнить контактные
+				<h2 data-aos="zoom-out-donw">Не нашли ответ на свой вопрос? Мы ответим <span>в течении 5 минут</span></h2>
+				<div class="offers__wrapper"><a data-aos="zoom-out-right" class="offers-item" href="#orderForm"
+						data-popup=""><span class="offers-item__wrapper"><span class="offers-item__subtitle">Нужно заполнить
+								контактные
 								данные</span><span class="offers-item__title">Заполнить заявку</span></span></a>
-					<a class="offers-item" href="https://t.me/rosimport_pro" target="_blank"><span
+					<a data-aos="zoom-out-left" class="offers-item" href="https://t.me/rosimport_pro" target="_blank"><span
 							class="offers-item__wrapper"><span class="offers-item__subtitle">Связь
 								через мессенджер без указания
 								контактных данных</span><span class="offers-item__title">Перейти в Telegram</span></span></a>
@@ -1762,7 +1766,7 @@
 		</section>
 		<section class="feedbacks" id="feedbacks">
 			<div class="container">
-				<h2>Спасибо, что оставляете отзыв! Благодаря им мы становимся лучше!</h2>
+				<h2 data-aos="zoom-out-up">Спасибо, что оставляете отзыв! Благодаря им мы становимся лучше!</h2>
 				<div class="feedbacks__wrapper">
 					<div class="feedbacks__control">
 						<div class="swiper-button-prev feedbacks-button-prev"></div>
@@ -1863,9 +1867,9 @@
 		</section>
 		<section class="faq" id="faq">
 			<div class="container">
-				<h2>Ответы на вопросы</h2>
+				<h2 data-aos="zoom-out-down">Ответы на вопросы</h2>
 				<div class="faq__wrapper">
-					<div class="faq-tab">
+					<div data-aos="zoom-out-up" class="faq-tab">
 						<div class="faq-tab__item">
 							<div class="faq-tab__header">1. Производитель или торговая компания в Китае: кого выбрать?</div>
 							<div class="faq-tab__content">
@@ -1953,10 +1957,10 @@
 		<div class="gallery gallery_no-text">
 			<div class="container">
 				<div class="gallery__wrapper">
-					<div class="gallery__title gallery__title_min-bottom">
+					<div data-aos="zoom-out-right" class="gallery__title gallery__title_min-bottom">
 						Фотоотчеты по нашим грузам
 					</div>
-					<div class="gallery__title-text">
+					<div data-aos="zoom-out-right" class="gallery__title-text">
 						на примере доставки груза из Китая <br>
 						на нашу компанию «КАРГО»
 					</div>
@@ -1968,7 +1972,7 @@
 							<span class="icon-pointer-average"></span>
 						</div>
 					</div>
-					<div class="gallery__body gallery__body_3">
+					<div data-aos="zoom-out-right" class="gallery__body gallery__body_3">
 						<div class="swiper-wrapper gallery__body_wrapper-pc">
 							<div class="gallery-blok swiper-slide">
 								<div data-da=".gallery__body_wrapper_3, 540, last" class="gallery-blok__item swiper-slide">
@@ -2049,11 +2053,11 @@
 		</div>
 		<section class="listSity">
 			<div class="container">
-				<div class="listSity__head">
+				<div data-aos="zoom-out-right" class="listSity__head">
 					<h2>Доставка грузов по всей России</h2>
 					<p>Доставим ваш товар в любой город страны</p>
 				</div>
-				<div class="listSity__table" lang="ru" dir="ltr">
+				<div data-aos="zoom-out-up" class="listSity__table" lang="ru" dir="ltr">
 					<div class="listSity__columns">
 						<div class="listSity__group">
 							<h3>А</h3>
@@ -2296,8 +2300,8 @@
 				</div>
 			</div>
 		</section>
-
 	</div>
+	<a href="#top" data-scroll="" class="scroll-top"></a>
 	<footer class="footer">
 		<div class="container">
 			<div class="footer__body">
@@ -2314,12 +2318,15 @@
 					</a>
 				</div>
 				<div data-da=".footer-mb__blok-top, 1064, last" class="footer__icon-list">
+					<div class="footer__icon">
+						<a href="https://vk.com/rosimport_pro" target="_blank" class="icon-vk"></a>
+					</div>
 
 					<div class="footer__icon">
-						<a href="#" target="_blank" class="icon-whatsapp"></a>
+						<a href="https://api.whatsapp.com/send?phone=78002500876" target="_blank" class="icon-whatsapp"></a>
 					</div>
 					<div class="footer__icon">
-						<a href="#" target="_blank" class="icon-telegram"></a>
+						<a href="https://t.me/rosimport_pro" target="_blank" class="icon-telegram"></a>
 					</div>
 					<div class="footer__icon">
 						<a href="#" target="_blank" class="icon-youtube"></a>
@@ -2543,7 +2550,11 @@
 	<script src="libs/jquery.validate.min.js"></script>
 	<script src="libs/swiper-bundle.min.js"></script>
 	<script src="libs/nouislider.min.js"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="js/custom.js?ver=3.7"></script>
+	<script>
+		AOS.init();
+	</script>
 </body>
 
 </html>
