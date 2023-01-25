@@ -711,20 +711,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ============= Вывод ближайших дат отправок.
-// Semple
 // Data: 25.01.23
 // Отправка: ПН(1), Ср(3), Пт(5), Вс(7),
-// Итог:
-// 25.01.2023
-// 27.01.2023
-// 29.01.2023
-// 31.01.2023
 
 
 document.addEventListener('DOMContentLoaded', function () {
-
 	let itemTable = document.querySelectorAll('*[data-date]');
 
+	// Перебераем тарифы
 	itemTable.forEach(item => {
 		const currentDate = new Date()
 		let rangeDate = item.getAttribute('data-date')
@@ -784,6 +778,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	// Создаем и публикуем даты
 	function createItem(array, item) {
 		for (let i = 0; i < array.length; i++) {
 			let dateMoment = moment(array[i].replaceAll('.', '-'), "DD-MM-YYYY")
@@ -796,10 +791,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
+	// Считаем разницу между датами
 	function getABS(a, b) {
 		return Math.abs(a - b);
 	}
 
+	// Форматируем дату в () 00.00.00
 	function formatDate(code) {
 		date = new Date(code)
 
@@ -815,8 +812,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		return dd + '.' + mm + '.' + yy;
 	}
 
+	// Выводи день недели
 	function nameDay(number) {
-		let day = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+		let day = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс', 'Пн']
 
 		return day[number - 1]
 	}
