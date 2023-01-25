@@ -748,11 +748,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 			array.sort((a, b) => moment(a, 'DD.MM.YYYY') - moment(b, 'DD.MM.YYYY'));
 			if (array.length < 4) {
-				console.log('Нужно добавить даты')
-				console.log(array)
 				let newArray = array
 				let req = Math.abs(newArray.length - 4)
-				console.log(req)
 
 				for (let i = 0; i < req; i++) {
 					let dateMoment = moment(array[i].replaceAll('.', '-'), "DD-MM-YYYY")
