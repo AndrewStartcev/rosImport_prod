@@ -9,10 +9,13 @@ function ibg() {
 ibg();
 
 $('a[data-scroll]').on('click', function () {
-
 	let href = $(this).attr('href');
+
+	let offSet = $(href).attr('data-id') ? Number($(href).attr('data-id')) : 120
+	console.log(offSet)
+
 	$('html, body').animate({
-		scrollTop: $(href).offset().top - 120
+		scrollTop: $(href).offset().top - offSet
 	}, {
 		duration: 500,   // по умолчанию «400»
 		easing: "swing" // по умолчанию «swing»
@@ -21,6 +24,18 @@ $('a[data-scroll]').on('click', function () {
 	return false;
 });
 
+var feedbackCaptcha;
+var authCaptcha;
+
+function recaptchaCallback() {
+	feedbackCaptcha = grecaptcha.render('feedback_captcha', {
+		'sitekey': '6LdxTM0ZAAAAAHtuMhcvVcumFhfZNdqTezlXwnlr',
+	});
+
+	orderCaptcha = grecaptcha.render('order_captcha', {
+		'sitekey': '6LdxTM0ZAAAAAHtuMhcvVcumFhfZNdqTezlXwnlr'
+	});
+}
 
 
 // Динамический адаптив  -----------------------------------------------------------------------------
@@ -299,23 +314,28 @@ $("form").each(function () {
 			}
 		},
 		submitHandler: function (el) {
-			let fd = new FormData(el);
-			$.ajax({
-				url: "/php/telegram/send.php",
-				type: "POST",
-				data: fd,
-				processData: false,
-				contentType: false,
-				beforeSend: () => {
-					$('.submit').addClass('spiner');
-				},
-				success: function success(respond) {
-					$(el)[0].reset();
-					$('.submit').removeClass('spiner');
-					$('.popup').removeClass('show');
-					$('#successForm').addClass('show');
-				}
-			});
+			var captcha = grecaptcha.getResponse();
+			if (!captcha.length) {
+				alert("Вы не ввели капчу");
+			} else {
+				let fd = new FormData(el);
+				$.ajax({
+					url: "/php/telegram/send.php",
+					type: "POST",
+					data: fd,
+					processData: false,
+					contentType: false,
+					beforeSend: () => {
+						$('.submit').addClass('spiner');
+					},
+					success: function success(respond) {
+						$(el)[0].reset();
+						$('.submit').removeClass('spiner');
+						$('.popup').removeClass('show');
+						$('#successForm').addClass('show');
+					}
+				});
+			}
 			return false;
 		}
 	});
@@ -555,6 +575,7 @@ if (Tab.length > 0) {
 var testSlider = new Swiper(".test-body-wrapper__index", {
 	spaceBetween: 300,
 	slidesPerView: 1,
+	autoHeight: true,
 	navigation: {
 		prevEl: ".test-body-wrapper__button_left",
 		nextEl: ".test-body-wrapper__button_right",
@@ -566,7 +587,7 @@ var testSlider = new Swiper(".test-body-wrapper__index", {
 		},
 		767.1: {
 			allowTouchMove: false,
-			autoHeight: false,
+			//autoHeight: false,
 		},
 	},
 });
@@ -579,7 +600,7 @@ if (sliderOne) {
 		connect: true,
 		range: {
 			'min': 1,
-			'max': 20
+			'max': 300
 		},
 	});
 
@@ -613,7 +634,7 @@ if (sliderTwue) {
 		connect: [true, false],
 		range: {
 			'min': 1,
-			'max': 2000
+			'max': 10000
 		}
 	});
 
@@ -646,7 +667,7 @@ if (sliderTrue) {
 		connect: [true, false],
 		range: {
 			'min': 1,
-			'max': 2000
+			'max': 10000
 		}
 	});
 
