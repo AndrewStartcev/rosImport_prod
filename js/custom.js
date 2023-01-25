@@ -753,7 +753,25 @@ document.addEventListener('DOMContentLoaded', function () {
 				}
 			}
 			array.sort((a, b) => moment(a, 'DD.MM.YYYY') - moment(b, 'DD.MM.YYYY'));
-			createItem(array, item)
+			if (array.length < 4) {
+				console.log('Нужно добавить даты')
+				console.log(array)
+				let newArray = array
+				let req = Math.abs(newArray.length - 4)
+				console.log(req)
+
+				for (let i = 0; i < req; i++) {
+					let dateMoment = moment(array[i].replaceAll('.', '-'), "DD-MM-YYYY")
+					let date = new Date(dateMoment.format("LLLL"))
+					let newDate = date.setDate(date.getDate() + 7)
+					newArray.push(formatDate(new Date(newDate)))
+				}
+				createItem(newArray, item)
+			} else {
+				createItem(array, item)
+			}
+
+
 
 		} else {
 			let array = []
@@ -764,21 +782,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 			createItem(array, item)
 		}
-
-
 	});
 
 	function createItem(array, item) {
 		for (let i = 0; i < array.length; i++) {
-			// let date = array[i].split('.')
-
-
 			let dateMoment = moment(array[i].replaceAll('.', '-'), "DD-MM-YYYY")
 			let date = new Date(dateMoment.format("LLLL"))
 			let day = nameDay(date.getDay())
-			// console.log(date.locale('ru').format("LLLL"))
-
 			let tag = item.appendChild(document.createElement('div'))
+
 			tag.classList.add('delivery-methods-sending__text')
 			tag.innerHTML = '(' + day + ") " + array[i]
 		}
@@ -789,7 +801,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function formatDate(code) {
-
 		date = new Date(code)
 
 		var dd = date.getDate();
@@ -809,6 +820,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		return day[number - 1]
 	}
-
 
 });
