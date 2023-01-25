@@ -9,13 +9,10 @@ function ibg() {
 ibg();
 
 $('a[data-scroll]').on('click', function () {
+
 	let href = $(this).attr('href');
-
-	let offSet = $(href).attr('data-id') ? Number($(href).attr('data-id')) : 120
-	console.log(offSet)
-
 	$('html, body').animate({
-		scrollTop: $(href).offset().top - offSet
+		scrollTop: $(href).offset().top - 120
 	}, {
 		duration: 500,   // по умолчанию «400»
 		easing: "swing" // по умолчанию «swing»
@@ -24,18 +21,6 @@ $('a[data-scroll]').on('click', function () {
 	return false;
 });
 
-var feedbackCaptcha;
-var authCaptcha;
-
-function recaptchaCallback() {
-	feedbackCaptcha = grecaptcha.render('feedback_captcha', {
-		'sitekey': '6LdxTM0ZAAAAAHtuMhcvVcumFhfZNdqTezlXwnlr',
-	});
-
-	orderCaptcha = grecaptcha.render('order_captcha', {
-		'sitekey': '6LdxTM0ZAAAAAHtuMhcvVcumFhfZNdqTezlXwnlr'
-	});
-}
 
 
 // Динамический адаптив  -----------------------------------------------------------------------------
@@ -314,28 +299,23 @@ $("form").each(function () {
 			}
 		},
 		submitHandler: function (el) {
-			var captcha = grecaptcha.getResponse();
-			if (!captcha.length) {
-				alert("Вы не ввели капчу");
-			} else {
-				let fd = new FormData(el);
-				$.ajax({
-					url: "/php/telegram/send.php",
-					type: "POST",
-					data: fd,
-					processData: false,
-					contentType: false,
-					beforeSend: () => {
-						$('.submit').addClass('spiner');
-					},
-					success: function success(respond) {
-						$(el)[0].reset();
-						$('.submit').removeClass('spiner');
-						$('.popup').removeClass('show');
-						$('#successForm').addClass('show');
-					}
-				});
-			}
+			let fd = new FormData(el);
+			$.ajax({
+				url: "/php/telegram/send.php",
+				type: "POST",
+				data: fd,
+				processData: false,
+				contentType: false,
+				beforeSend: () => {
+					$('.submit').addClass('spiner');
+				},
+				success: function success(respond) {
+					$(el)[0].reset();
+					$('.submit').removeClass('spiner');
+					$('.popup').removeClass('show');
+					$('#successForm').addClass('show');
+				}
+			});
 			return false;
 		}
 	});
@@ -642,7 +622,7 @@ if (sliderTwue) {
 	let inputsThue = [sliderInputTwue0];
 
 	sliderTwue.noUiSlider.on('update', function (values, handle) {
-		inputsThue[handle].value = Math.round(values[handle]);
+		inputsThue[handle].value = Math.round(values[handle] * 100) / 100;
 	});
 
 	const setRangeSlider2 = (i, value) => {
@@ -675,7 +655,7 @@ if (sliderTrue) {
 	let inputsTrue = [sliderInputTrue0];
 
 	sliderTrue.noUiSlider.on('update', function (values, handle) {
-		inputsTrue[handle].value = Math.round(values[handle]);
+		inputsTrue[handle].value = Math.round(values[handle] * 100) / 100;
 	});
 
 	const setRangeSlider3 = (i, value) => {
@@ -728,4 +708,107 @@ document.addEventListener('DOMContentLoaded', function () {
 	countdownTimer();
 	// вызываем функцию countdownTimer каждую секунду
 	timerId = setInterval(countdownTimer, 1000);
+});
+
+// ============= Вывод ближайших дат отправок.
+// Semple
+// Data: 25.01.23
+// Отправка: ПН(1), Ср(3), Пт(5), Вс(7),
+// Итог:
+// 25.01.2023
+// 27.01.2023
+// 29.01.2023
+// 31.01.2023
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+	let itemTable = document.querySelectorAll('*[data-date]');
+
+	itemTable.forEach(item => {
+		const currentDate = new Date()
+		let rangeDate = item.getAttribute('data-date')
+
+		if (rangeDate != 'any') {
+			rangeDate = rangeDate.split(', ')
+
+			let array = []
+
+			for (let i = 0; i < rangeDate.length; i++) {
+
+				if (currentDate.getDay() <= rangeDate[i]) {
+					let date = new Date()
+					let summ = date.setDate(date.getDate() + getABS(date.getDay(), rangeDate[i]))
+
+
+					array.push(formatDate(new Date(summ)))
+				} else {
+					let currentDay = Number(currentDate.getDay())
+					let range = Number(rangeDate[i])
+
+					let date = new Date()
+					let summ = date.setDate(date.getDate() + (7 - currentDay + range))
+
+					array.push(formatDate(new Date(summ)))
+				}
+			}
+			array.sort((a, b) => moment(a, 'DD.MM.YYYY') - moment(b, 'DD.MM.YYYY'));
+			createItem(array, item)
+
+		} else {
+			let array = []
+			for (let i = 0; i < 4; i++) {
+				let date = new Date()
+				let summ = date.setDate(date.getDate() + i)
+				array.push(formatDate(new Date(summ)))
+			}
+			createItem(array, item)
+		}
+
+
+	});
+
+	function createItem(array, item) {
+		for (let i = 0; i < array.length; i++) {
+			// let date = array[i].split('.')
+
+
+			let dateMoment = moment(array[i].replaceAll('.', '-'), "DD-MM-YYYY")
+			let date = new Date(dateMoment.format("LLLL"))
+			let day = nameDay(date.getDay())
+			// console.log(date.locale('ru').format("LLLL"))
+
+			let tag = item.appendChild(document.createElement('div'))
+			tag.classList.add('delivery-methods-sending__text')
+			tag.innerHTML = '(' + day + ") " + array[i]
+		}
+	}
+
+	function getABS(a, b) {
+		return Math.abs(a - b);
+	}
+
+	function formatDate(code) {
+
+		date = new Date(code)
+
+		var dd = date.getDate();
+		if (dd < 10) dd = '0' + dd;
+
+		var mm = date.getMonth() + 1;
+		if (mm < 10) mm = '0' + mm;
+
+		var yy = date.getFullYear();
+		if (yy < 10) yy = '0' + yy;
+
+		return dd + '.' + mm + '.' + yy;
+	}
+
+	function nameDay(number) {
+		let day = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+
+		return day[number - 1]
+	}
+
+
 });
